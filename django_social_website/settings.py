@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -31,7 +32,9 @@ ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+
     'account.apps.AccountConfig',
+    'images.apps.ImagesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,7 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_django',
-    'django_extensions',
+    'sslserver',  # for HTTPS:  python manage.py runsslserver localhost:8000
+
+
 ]
 
 MIDDLEWARE = [
@@ -151,5 +156,4 @@ AUTHENTICATION_BACKENDS = [
     'account.authentication.EmailAuthBackend',  # if not valid then check email=form.username
     'social_core.backends.google.GoogleOAuth2',
 ]
-
 
